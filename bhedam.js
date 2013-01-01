@@ -230,23 +230,23 @@ var inputs = {raga: '', svaras: '', shift: ''};
 function search(ragaName) {
     var ragaNameLC = ragaName.toLowerCase();
     var exactMatch;
-    var results = RagaDB.filter(function (r) {
+    var matchInfo = [];
+    RagaDB.forEach(function (r) {
         var n = r[0].toLowerCase();
-        if (ragaNameLC === n) {
-            // Remember the entry that is an exact match.
-            // We'll pull this to the head of the list
-            // so it is what gets displayed.
-            exactMatch = r;
+        var matchLoc = n.indexOf(ragaNameLC);
+        if (matchLoc >= 0) {
+            matchInfo.push([r, matchLoc]);
         }
-        return n.indexOf(ragaNameLC) >= 0 && ragaNameLC !== n;
     });
 
-    // Pull the exact match to the head of the list.
-    if (exactMatch) {
-        results.unshift(exactMatch);
-    }
+    // Sorting by the match position will give us
+    // matches at the head first, followed by later matches.
+    // This is a useful property of the sorted list to have.
+    matchInfo.sort(function (a, b) {
+        return a[1] - b[1];
+    });
 
-    return results;
+    return matchInfo.map(function (r) { return r[0]; });
 }
 
 function setRaga(ragaName) {
