@@ -235,7 +235,7 @@ function search(ragaName) {
         var n = r[0].toLowerCase();
         var matchLoc = n.indexOf(ragaNameLC);
         if (matchLoc >= 0) {
-            matchInfo.push([r, matchLoc + n.length - ragaNameLC.length]);
+            matchInfo.push([r, matchLoc * 256 + n.length - ragaNameLC.length]);
         }
     });
 
