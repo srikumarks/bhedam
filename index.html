@@ -55,48 +55,61 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
         </script>
     </head>
-    <body style="padding: 20px">
-        <div>Rāgā: <input type="text" id="raga"></input> (<span id="raga_match"></span>)</div>
-        <div>Scale: <input type="text" id="svaras"></input> (<span id="input_match"></span>)</div>
-        <div><span id="raga_info"></span></div>
-        <br/>
-        <div>
-            <table width="640px" border="1px" cellpadding="5px">
-                <tr>
-                    <td></td><td>r</td><td>R</td><td>g</td><td>G</td><td>m</td><td>M</td><td>P</td><td>d</td><td>D</td><td>n</td><td>N</td>
-                </tr>
-                <tr>
-                    <td><a href="http://en.wikipedia.org/wiki/Graha_bhedam">Graha bhēdam</a></td>
-                    <td id="gr1"></td>
-                    <td id="gr2"></td>
-                    <td id="gg1"></td>
-                    <td id="gg2"></td>
-                    <td id="gm1"></td>
-                    <td id="gm2"></td>
-                    <td id="gp"></td>
-                    <td id="gd1"></td>
-                    <td id="gd2"></td>
-                    <td id="gn1"></td>
-                    <td id="gn2"></td>
-                </tr>
-                <tr>
-                    <td>Śruti bhēdam</td>
-                    <td id="sr1"></td>
-                    <td id="sr2"></td>
-                    <td id="sg1"></td>
-                    <td id="sg2"></td>
-                    <td id="sm1"></td>
-                    <td id="sm2"></td>
-                    <td id="sp"></td>
-                    <td id="sd1"></td>
-                    <td id="sd2"></td>
-                    <td id="sn1"></td>
-                    <td id="sn2"></td>
-                </tr>
-            </table>
+    <body>
+        <div style="margin: 20px">
+            <div class="row">
+                <h1 class="span6">Graha bhēdam explorer</h1>
+            </div>
+            <div class="row">
+                <span class="span5">
+                    <span class="span4">Rāgā: <input type="text" id="raga"></input></span> 
+                    <ul class="span4 breadcrumb" id="raga_match"></ul>
+                </span>
+                <span class="span5">
+                    <span class="span4">Scale: <input type="text" id="svaras"></input></span>
+                    <ul class="span4 breadcrumb" id="input_match"></ul>
+                </span>
+            </div>
+            <div><span id="raga_info"></span></div>
+            <br/>
+            <div>
+                <table width="640px" border="1px" cellpadding="5px">
+                    <tr>
+                        <td></td><td>r</td><td>R</td><td>g</td><td>G</td><td>m</td><td>M</td><td>P</td><td>d</td><td>D</td><td>n</td><td>N</td>
+                    </tr>
+                    <tr>
+                        <td><a href="http://en.wikipedia.org/wiki/Graha_bhedam">Graha bhēdam</a></td>
+                        <td id="gr1"></td>
+                        <td id="gr2"></td>
+                        <td id="gg1"></td>
+                        <td id="gg2"></td>
+                        <td id="gm1"></td>
+                        <td id="gm2"></td>
+                        <td id="gp"></td>
+                        <td id="gd1"></td>
+                        <td id="gd2"></td>
+                        <td id="gn1"></td>
+                        <td id="gn2"></td>
+                    </tr>
+                    <tr>
+                        <td>Śruti bhēdam</td>
+                        <td id="sr1"></td>
+                        <td id="sr2"></td>
+                        <td id="sg1"></td>
+                        <td id="sg2"></td>
+                        <td id="sm1"></td>
+                        <td id="sm2"></td>
+                        <td id="sp"></td>
+                        <td id="sd1"></td>
+                        <td id="sd2"></td>
+                        <td id="sn1"></td>
+                        <td id="sn2"></td>
+                    </tr>
+                </table>
+            </div>
         </div>
         <hr/>
-        <div>
+        <div style="margin: 20px">
             <h5>Instructions</h5>
             <small>
                 This is a prototype interface to explore rāgā relationships via bhēdams.

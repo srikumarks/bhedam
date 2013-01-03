@@ -209,20 +209,21 @@ function showRaga(name) {
     E.raga_info.innerHTML = '<h3>' + ragaWithLink(r[0]) + (Melakartas[r[0]] ? ' <small>(mela)</small>' : '') + '</h3> arohanam: ' + r[1].join(', ') + '<br/>avarohanam: ' + r[2].join(', ');
 }
 
-function format(ragas, func) {
+function format(ragas, func, sep) {
     func = func || 'showRaga';
+    sep = (sep === undefined ? '<span class="divider">/</span>' : sep);
     var suffix = '';
     if (ragas.length > 13) {
         var n = ragas.length - 8;
         ragas = ragas.slice(0, 8);
-        suffix = ', ... ' + n + ' more';
+        suffix = sep + ' ... ' + n + ' more';
     } 
 
     ragas = ragas.map(function (r) {
-        return '<a href=\'javascript:' + func + '("' + r + '")\'>' + taggedRaga(r) + '</a>';
+        return '<li><a href=\'javascript:' + func + '("' + r + '")\'>' + taggedRaga(r) + '</a></li>';
     });
 
-    return ragas.join(', ') + suffix;
+    return ragas.join(sep) + suffix;
 }
 
 var inputs = {raga: '', svaras: '', shift: ''};
@@ -271,9 +272,9 @@ function onchange() {
         for (i = 0, N = bhedamSvaras.length; i < N; ++i) {
             try {
                 gb = grahaBhedam(inputVal, bhedamSvaras[i]);
-                G[G.ids[i]].innerHTML = '<b>' + gb.bhedam + '</b> ' + format(gb.match);
+                G[G.ids[i]].innerHTML = '<b>' + gb.bhedam + '</b><br/><ul>' + format(gb.match, null, '') + '</ul>';
                 sb = srutiBhedam(inputVal, bhedamSvaras[i]);
-                S[S.ids[i]].innerHTML = '<b>' + sb.bhedam + '</b> ' + format(sb.match);
+                S[S.ids[i]].innerHTML = '<b>' + sb.bhedam + '</b><br/><ul>' + format(sb.match, null, '') + '</ul>';
             } catch (e) {
             }
         }
